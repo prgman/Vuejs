@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+# object
+1. js에서 속성과 메서드가 있는 구현체를 말한다.
+2. 형식
+	1) json(javascript object notation) : {속성:속성값, 메서드:function(){}}
+	2) 생성자 객체
+	    - 선언.
+		function 생성자명(매개변수1,매개변수2){
+			 this.속성 = 매개변수1;
+			 this.메서드 = function(){}
+	    }
+	    - 호출..
+	    var  참조변수명 = new 생성자명(입력값1, 입력값2);
+	3) es6 
+	   class 클래스명{
+		  constructor( 매개변수1, 매개변수2){
+			  this.멤버1 = 매개변수1;
+		  }
+		   메서드명(매개변수1...){
+			  return 리턴값;
+		  }
+	   }
+	   var 참조변수 = new 클래스명(입력값1, 입력값2);
+ */
+ // json 객체 생성, 배열 객체 처리..
+ // 객체가 생성 
+ 	var p01 = {};
+ // 참조명.속성 = 속성값;
+ // 객체의 속성 중에 변수를 할당하는 것은 oop에서는 필드라고 한다.
+ // 객체의 속성 중에 함수를 할당하는 것은 oop에서는 메서드라고 한다.
+ // 객체의 필드와 메서드를 oop에서는 멤버라고 한다.
+ 	p01.name= "홍길동";
+ 	p01.show = function(){
+ 		// this.속성(필드/메서드) : 현재 객체가 가지고 있는,
+ 		// 현재 메서드를 선언하기 전에 선언되어 있는 객체의 속성을 호출할때,
+ 		// this를 활용한다. 
+ 		alert(this.name);
+ 	};
+ 	// 메모리로 선언만 해 놓은 상황..
+ 	// 호출을 하는 것은 아래와 같이 선언된 내용을 출력할때, 처리된다.
+ 	// 필드 호출..
+ 	document.write("<h2>"+p01.name+"</h2>");
+ 	// 메서드 호출..
+ 	p01.show(); 
+ 	// 선언과 할당.
+ 	var prod = {name:"사과",price:3000,cnt:5,buy:function(){
+ 		document.write("<h2>구매한 물건명:"+this.name+"</h2>");
+ 		document.write("<h2>구매한 총비용:"+(this.price*this.cnt)+"</h2>");
+ 	}};
+ 	prod.buy();
+ 	// ex) json 속성으로  이름, 국어점수, 영어점수, printRecord() 출력
+ 	// 을 처리하여, 해당 메서드를 호출했을 때, @@@는 국어 @@, 영어 @@ 평균 @@
+ 	// 로 출력하세요..
+ 	var stud = { name:"홍길동", kor:80, eng:90,
+ 			printRecord:function(){
+ 				document.write("<h2>"+this.name+"은 ");				
+ 				document.write("국어 "+this.kor+", ");				
+ 				document.write("영어 "+this.eng+" 로 ");
+ 				var avg = (this.kor+this.eng)/2;
+ 				document.write("평균"+avg+"입니다!</h2>");				
+ 			}
+ 	};
+ 	stud.printRecord();
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
