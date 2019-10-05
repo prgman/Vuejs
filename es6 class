@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+/* 
+# es6에서 활용하는  class선언과 사용.. 
+ */
+	class Person{
+		// 클래스의 생성자는 1개만 선언할 수 있다.
+		constructor(name, age, loc){
+			// this.속성 : 필드로 할당 처리..
+			this.name=name;
+			this.age=age;
+			this.loc=loc;
+		}
+		show(){
+			document.write("<h2>이름:"+this.name+"</h2>");
+			document.write("<h2>나이:"+this.age+"</h2>");
+			document.write("<h2>사는곳:"+this.loc+"</h2>");
+		}
+	} 
+	// 상속   class 하위클래스 extends 상위클래스 
+	//      상위클래스에 정의된 멤버들을 활용할 수 있게 처리된다.
+	class Employee extends Person{
+		constructor(name,age,loc,empno,deptno){
+			// super() :  상위에 부모 클래스의 생성자를 호출..
+			super(name,age,loc);
+			this.empno=empno;
+			this.deptno=deptno;
+		}
+		show(){
+			super.show();
+			document.write("<h2>사원번호:"+this.empno+"</h2>")
+			document.write("<h2>사원번호:"+this.deptno+"</h2>")
+		}
+	}
+ 	$(document).ready(function(){
+		$("h1").text("클래스 선언과 활용!!");
+		var p1 = new Person("홍길동",25,"서울 신림동");
+		var p2 = new Person("신길동",30,"서울 당산");
+		p1.show();
+		p2.show();
+		var emp01 = new Employee("김사원",32,"서울 역삼동",7788,10);
+		emp01.show();
+		
+	});
+</script>
+</head>
+<body>
+<h1></h1>
+
+</body>
+</html>
