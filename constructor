@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+// 생성자 객체의 선언과 활용..
+	function Person(name,age,loc){
+		// name 매개변수가 들어오면, 속성  this.name
+		// 의 필드에 할당한다.
+	  	this.name = name;
+		this.age = age;
+		this.loc = loc;
+		// 출력하는 메서드 선언..
+		this.show = function(){
+			document.write("<h2>이름:"+this.name+"</h2>")
+			document.write("<h2>나이:"+this.age+"</h2>")
+			document.write("<h2>사는곳:"+this.loc+"</h2>")
+		}
+    }
+	function Calcu(num01, num02){
+		this.num01 = num01;
+		this.num02 = num02;
+		this.plus = function(){
+			document.write("<h2>"+this.num01);
+			document.write(" + "+this.num02+" = ");
+			document.write(this.num01+this.num02+"</h2>");
+		}
+	}
+
+	$(document).ready(function(){
+		$("h1").text("jquery  시작!");
+		//  Person이라는 생성자 틀에 데이터를 할당하여 객체를 생성한다.
+		var p1 = new Person("홍길동",25,"서울 신림동");
+		var p2 = new Person("신길동",27,"서울 당산동");
+		// 선언된 객체의 메서드 호출..
+		p1.show();
+		p2.show();
+		// ex) 계산기로 생성자 매개변수로 숫자 num01, num02이가 전달되어.
+		//    멤버에 할당이되고,  plus()메서드를 통해서, @@ + @@ = @@
+		//    가 h2로 출력되게 처리하세요..
+		var cal1 = new Calcu(25,35);
+		var cal2 = new Calcu(35,35);
+		cal1.plus();
+		cal2.plus();
+		
+		
+	});
+</script>	
+</head>
+<body>
+	<h1></h1>
+</body>
+</html>
