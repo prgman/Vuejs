@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h1").text("jquery  시작!");
+/* 
+1. 배열 선언..
+	1) var arry = [];
+	arry[0]="사과";	배열명[index번호]
+	arry[1]="바나나";
+	배열명.length : 배열의 크기 
+		var arry2 = [3000,4000];
+2. 객체형 배열 선언과 DOM에서 활용..
+
+ */		var arry = [];
+ 		arry[0]="사과";
+ 		arry[1]="바나나";
+ 		arry[2]="딸기";
+ 		var arry2 = [3000,4000,12000];
+		for(var idx=0;idx<arry.length;idx++){
+			$("table:eq(0)").append("<tr><td>"+arry[idx]+
+					"</td><td>"+arry2[idx]+"</td></tr>");
+		}
+		// ex) 주말(일) 일정 계획
+		//     일정 내용 배열로 선언
+		//     같은 index에 시간으로 배열로 선언.. 아래와 같이 출력하세요.
+		/*    
+			 no   시간      일정 내용
+			  1  06:30 	등산.
+			  2  13:00 	점심약속
+			  3  18:00    친구만남
+			 
+		*/
+		var times = ["06:30","13:00","18:00"];
+		var sche = ["등산","점심약속","친구만남"];
+		$.each(times, function(idx, time){
+			var ad ="<tr><td>"+(idx+1)+"</td>"+
+			"<td>"+time+"</td><td>"+sche[idx]+"</td></tr>";
+			$("table:eq(1)").append(ad);
+		})
+		
+	});
+</script>
+</head>
+<body>
+<h1></h1>
+<table  border>
+</table>
+<h2>주말일정계획</h2>
+<table border>
+	<tr><th>no</th><th>시간</th><th>일정내용</th></tr>
+</table>
+
+</body>
+</html>
