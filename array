@@ -63,8 +63,28 @@
 				+ prd.cnt+"</td></tr>";
 			$("table:eq(2)").append(add);
 		}
-		
+		// 객체 배열 선언..
+		var hobbies=[
+			{title:"낚시",  pay:50000},
+			{title:"조깅",  pay:0},
+			{title:"수영",  pay:10000}
+		];
+		$.each(hobbies,function(idx, hobby){
+			//  배열                         index, 단위객체
+			var add="<tr><td>"+(idx+1)+"</td>";
+			add+="<td>"+hobby.title+"</td>";
+			add+="<td>"+hobby.pay+"</td></tr>";
+			$("table:eq(3)").append(add);
+			
+		});
 	});
+	// ex) 취미내용, 비용  속성을 가진 단위 데이터로 
+	//   배열로 설정하자 가장 좋아하는 취미3개를  table 로
+	//   리스트 처리하세요.
+	
+	
+	
+	
 </script>
 </head>
 <body>
@@ -78,6 +98,10 @@
 <h2>구매물품리스트</h2>
 <table border>
 	<tr><th>no</th><th>물건명</th><th>가격</th><th>갯수</th></tr>
+</table>
+<h2>즐거운 취미생활</h2>
+<table border>
+	<tr><th>no</th><th>내용</th><th>비용</th></tr>
 </table>
 </body>
 </html>
