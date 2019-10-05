@@ -1,0 +1,22 @@
+/////////// a.jsp//////////
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- http://localhost:7080/vuejs/a01_jsBasic/
+	a04_requestResponse.jsp?id=himan&pass=7777 -->
+<h2>요청값 id:${param.id}</h2>
+<h2>요청값 pass:${param.pass}</h2>
+
+</body>
+</html>
+
+
+////////ecplis 설정방법.
+tomcat/lib 폴더내 jsp-api.jar, servlet-api.jar파일을 eclipse에 WEB-INF/LIB폴더 안에 넣어준다. 
