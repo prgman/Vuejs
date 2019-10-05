@@ -1,0 +1,67 @@
+///////////z03_calcu.jsp
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+{"num01":${param.num01},"num02":${param.num02},"sum":${param.num01+param.num02}}
+
+
+///////jqueryajax.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h1").text("jquery ajax처리!");
+/* 		
+# jquery에서는 여러 메서드를 통해서 비동기 통신을 효율적
+으로 처리하게 도와 주고 있다.
+1. 형식
+	$.ajax({속성:속성값, 속성:속성값,메서드:function(){}});
+2. 속성
+	1) type : 전송방식 get/post
+	2) url : 전송요청하는 서버의 자원 - @@.do, @@.jsp - json문자열을 받는곳
+	3) data : 요청하는 데이터
+		- query string : key1=value1&key2=value2
+		- json객체 : {key1:value1,key2:value2}
+		- form하위에 있는 객체들 자동을 요청 처리 변경 전달(name,value)
+			$("form").serialize();
+	4) dataType: 결과로 전송되어 오는 데이터 형식 지정.
+		json으로 선언되면  문자열 json을  객체형으로 자동 변환처리..
+*/
+		$("[name=num01],[name=num02]").focus(function(){
+			$(this).val("");
+		});
+		$("[name=num01],[name=num02]").keyup(function(){
+			//$("div").append($("form").serialize()+",");
+			//$("div").append($(this).val()+",");
+			$.ajax({
+				type:"post",
+				url:"z03_calcu.jsp",
+				data:$("form").serialize(),
+				dataType:"json",
+				success:function(data){ 
+					$("div").html("<h2>"+data.num01+" + "+data.num02+" = "+data.sum+"</h2>")
+				},
+				error:function(xhr,status,error){
+					console.log(xhr);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<h1></h1>
+<form>
+	<input type="text" name="num01" value="0"/> + 
+	<input type="text" name="num02" value="0"/>  
+</form>
+<div></div>
+</body>
+</html>
