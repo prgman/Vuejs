@@ -31,27 +31,35 @@
 			$("form").serialize();
 	4) dataType: 결과로 전송되어 오는 데이터 형식 지정.
 		json으로 선언되면  문자열 json을  객체형으로 자동 변환처리..
+	5) success:function(data){ } :접속 성공과 정상적인 결과값을 받을
+		때, 처리 내용.
+	6) error:function(err){} : 에러 발생시, 에러 코드 내용을 err
+		매개변수로 받아서 처리한다.
 */
 		$("[name=num01],[name=num02]").focus(function(){
 			$(this).val("");
 		});
 		$("[name=num01],[name=num02]").keyup(function(){
+			
 			//$("div").append($("form").serialize()+",");
-			//$("div").append($(this).val()+",");
 			$.ajax({
 				type:"post",
 				url:"z03_calcu.jsp",
 				data:$("form").serialize(),
 				dataType:"json",
-				success:function(data){ 
-					$("div").html("<h2>"+data.num01+" + "+data.num02+" = "+data.sum+"</h2>")
+				success:function(data){
+					$("div").html("<h2>"+data.num01+" + "+
+							data.num02+" = "+data.sum+"</h2>");
+					
 				},
-				error:function(xhr,status,error){
+				error:function(xhr, status, error){
 					console.log(xhr);
 					console.log(status);
 					console.log(error);
 				}
 			});
+			
+			
 		});
 	});
 </script>
