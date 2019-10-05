@@ -1,0 +1,47 @@
+//////////////z01_data.txt만들고 안에 안녕하세요(서버파일내용)이라고 적어둔다.)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h1").attr("align","center").text("ajax처리(XMLHttpRequest 호출)");
+		//  h1 클릭시, 비동기 처리
+		$("h1").click(function(){
+			// 1. 객체 생성.
+			var xhr = new XMLHttpRequest();
+			// alert(xhr);
+			// 2. url주소로 요청 형식과 요청 자원 호출..
+			//    .open("get/post", "서버의자원", 비동기여부)
+			xhr.open("get","z01_data.txt",true);
+			// 3. 이벤트에 따른 상태값 변경과 정상범위에서 반응값 받아서 처리..
+			xhr.onreadystatechange=function(){
+				// 1) 전송상태 readyState : 0-객체생성, 1/2 전송준비, 3:전송시작
+				//    4: 데이터 전송 완료..
+				// 2) status :http 반응 코드(정상범위 200~299 일때,)
+				if( xhr.readyState==4){
+					if( xhr.status>=200 && xhr.status < 300){
+						// xhr.responseText : 서버에서 넘겨준 데이터..
+						//alert(xhr.responseText);
+						$("div>h2").append(xhr.responseText);
+					}					
+				}
+			};
+			// 4. 요청객체 전송..
+			xhr.send();
+			
+			
+		});		
+		
+		
+	});
+</script>
+</head>
+<body>
+<h1></h1>
+<div><h2></h2></div>
+</body>
+</html>
