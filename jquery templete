@@ -1,0 +1,19 @@
+///////////eclips에 menu>preference>web>html>edit>templete에 해당내용 추가. html5기준.
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="${encoding}">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$$(document).ready(function(){
+		$$("h1").text("jquery  시작!");
+	});
+</script>
+</head>
+<body>
+    <h1></h1>
+</body>
+</html>
