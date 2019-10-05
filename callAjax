@@ -1,0 +1,44 @@
+//z02_data.txt
+{"name":"사과","price":3000,"cnt":2}
+
+//////callAjax.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h1").text("물건정보를 가져오세요(클릭)");
+		var cnt=1;
+		$("h1").click(function(){
+			var xhr = new XMLHttpRequest();
+			xhr.open("get","z02_data.txt",true);
+			xhr.onreadystatechange=function(){
+				if( xhr.readyState==4){
+					if( xhr.status>=200 && xhr.status < 300){
+						var prod = JSON.parse(xhr.responseText);
+						var add="<tr><td>"+(cnt++)+"</td><td>"
+						+prod.name+"</td><td>"+
+						prod.price+"</td><td>"+prod.cnt+"</td></tr>";
+						$("table").append(add);
+					}					
+				}
+			};
+			// 4. 요청객체 전송..
+			xhr.send();			
+		});
+	});
+</script>
+</head>
+<body>
+<h1></h1>
+<div>
+	<table border>
+		<tr><th>no</th><th>물건명</th><th>가격</th><th>갯수</th></tr>
+	</table>
+</div>
+</body>
+</html>
