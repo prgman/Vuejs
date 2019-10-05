@@ -38,11 +38,31 @@
 		*/
 		var times = ["06:30","13:00","18:00"];
 		var sche = ["등산","점심약속","친구만남"];
+		// js  배열명.forEach(function(단위데이터, index){});
+		// jquery $.each(배열명, function(index, 단위데이터){});
 		$.each(times, function(idx, time){
 			var ad ="<tr><td>"+(idx+1)+"</td>"+
 			"<td>"+time+"</td><td>"+sche[idx]+"</td></tr>";
 			$("table:eq(1)").append(ad);
 		})
+		// 객체 배열 :  객체를 배열안에 할당해서, 해당 속성값별로 처리하는 형태
+		// 를 말한다..[{},{},{}]
+		// 물건에 속성(물건명,가격, 갯수)을 객체의 구성요소로 하고,
+		// 배열로 선언하여 처리한다.
+		var blist = [
+			{name:"사과",price:3000, cnt:12},
+			{name:"바나나",price:4000, cnt:3},
+			{name:"오렌지",price:2000, cnt:5}
+		];
+		//blist[0]; // 객체로 {name:"사과",price:3000, cnt:12}의미..
+		for(var idx=0;idx<blist.length;idx++){
+			var prd = blist[idx];//index 로 단위 객체 할당.
+			// 화면 처리..
+			var add="<tr><td>"+(idx+1)+"</td><td>"+prd.name
+				+"</td><td>"+prd.price+"</td><td>"
+				+ prd.cnt+"</td></tr>";
+			$("table:eq(2)").append(add);
+		}
 		
 	});
 </script>
@@ -55,6 +75,9 @@
 <table border>
 	<tr><th>no</th><th>시간</th><th>일정내용</th></tr>
 </table>
-
+<h2>구매물품리스트</h2>
+<table border>
+	<tr><th>no</th><th>물건명</th><th>가격</th><th>갯수</th></tr>
+</table>
 </body>
 </html>
