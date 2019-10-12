@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+
+// ex) 저녁식사메뉴 : [   ], 가격 : [  0]
+//    오늘 저녁은 @@@이며 비용이 @@@원 입니다.
+	$(document).ready(function(){
+		$("h1").text("v-model 처리 연습");
+		var vm = new Vue({
+			el:"#container",
+			data:{menu:"",pay:0}
+		});
+	});
+</script>
+</head>
+<body>
+<h1></h1>
+<div id="container"><!-- v-text:html랜더링이 필요없을 때 -->
+	저녁식사메뉴:<input type="text" v-model="menu" /><br>
+	가격:<input type="text" v-model="pay"/><br>
+	<h2>오늘 저녁은 <span v-text="menu"></span>이며,
+		 비용이<span v-text="pay"></span>원 입니다.
+	</h2>
+</div>
+</body>
+</html>

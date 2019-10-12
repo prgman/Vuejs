@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../a00_com/bootstrap.min.css">
+<link rel="stylesheet" href="../a00_com/jquery-ui.css">
+<style type="text/css">
+    .input-group-text{width:100%;}
+    .input-group-prepend{width:30%;}
+    input[type="text"], label {
+        margin-bottom: 12px; padding: .4em; 
+        width: 95%;
+    }    
+    h1,th,td{text-align:center;}
+</style>
+<script src="../a00_com/jquery.min.js"></script>
+<script src="../a00_com/popper.min.js"></script>
+<script src="../a00_com/bootstrap.min.js"></script>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script  src="../a00_com/vue.js" type="text/javascript"></script>	
+<script src="../a00_com/jquery-ui.js"></script>
+<script type="text/javascript">
+// ex) title로 MVVM 시작!!
+//      2019 프로야구 정규리그 우승팀.. 
+//       팀명 @@@  승률 @@  --> 모델 데이터로 선언하여 현재 환경에서 출력하세요.
+
+
+	$(document).ready(function(){
+		var model={msg:"MVVM 시작",team:"두산",vicRatio:0.615};
+		var viewmodel= new Vue({
+			el:".container",
+			data:model
+		});
+	});
+</script>
+</head>
+<body>
+<!--  -->
+<div class="container" >
+<h1>{{msg}}</h1>
+	<table class="table table-hover table-striped">
+		<col width="50%">
+		<col width="50%">
+		<thead class="thead-light">
+			<tr><th>팀</th><th>승률</th></tr>
+		</thead>	
+		<tr><td>{{team}}</td><td>{{vicRatio}}</td></tr>
+	</table>		
+</div>	
+</body>
+</html>

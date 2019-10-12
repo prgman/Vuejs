@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h1").text("물건구매");
+		var model={name:"사과",price:3000,cnt:2};
+		var vm = new Vue({
+			el:"#tab01",
+			data:model
+		});
+	});
+</script>
+</head>
+<body>
+<h1></h1>
+<table id="tab01" border>
+	<tr><th>물건명</th><td>{{name}}</td></tr>
+	<tr><th>가격</th><td>{{price}}</td></tr>
+	<tr><th>갯수</th><td>{{cnt}}</td></tr>
+</table>
+
+</body>
+</html>
