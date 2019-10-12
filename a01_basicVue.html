@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h1").text("vue 시작 화면!!");
+		// model 데이터 선언..
+		var model={message:"안녕하세요!vue입니다!"};
+		// view model
+		// new Vue({대상요소객체:"", data:모델데이터})
+		var vm = new Vue({
+			el:"#simple",
+			data:model
+		});
+	});
+	// ex) MVVM 패턴을 a02_basicVue.html을 선언하여,
+	//    모델데이터는 물건명, 가격, 갯수
+	//    화면에  테이블에  
+	//    물건명 : @@@
+	//    가격 : @@@
+	//    갯수 : @@@ 가 출력되게 처리하세요..
+	
+</script>
+</head>
+<body>
+<h1></h1>
+<!-- 화면 구현(View) -->
+<div id="simple">
+	<h2>{{message}}</h2>
+</div>
+</body>
+</html>

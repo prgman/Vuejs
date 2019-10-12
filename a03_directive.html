@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+/*
+# vue에서 사용하는 속성 처리..  
+1. {{변수}} : mustache expression으로 model데이터를 출력
+할 때, 사용된다.
+2. html로 랜더링을 하면서 출력할 내용:  v-html="모델 속성"
+3. html랜더링 없이 그대로 출력할 내용 : v-text="모델 속성"
+3. v-model 입력 형식으로  출력할 모델데이터와 연결될 때, 사용된다.
+	v-model="모델 속성"
+ */
+
+	$(document).ready(function(){
+		$("h1").text("v-model 처리(양방향 처리.)");
+		var model = {name:""};
+		var vm = new Vue({
+			el:"#container",
+			data:model
+		});
+	});
+	// ex) 
+</script>
+</head>
+<body>
+<h1></h1>
+<div id="container">
+	<input type="text" v-model="name" placeholder="이름을 입력하세요"/>
+	<br>
+	입력된 이름:<h2 v-html="name"></h2>
+	입력된 이름:<h3 v-html="name"></h3>
+	입력된 이름:<h4 v-html="name"></h4>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script type="text/javascript" 
+	src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h1").text("vue 시작 화면!!");
+		// model 데이터 선언..
+		var model={name:"사과", price:1000,cnt:5};
+		// view model
+		// new Vue({대상요소객체:"", data:모델데이터})
+		var vm = new Vue({
+			el:"#tab01",
+			data:model
+		});
+	});
+</script>
+</head>
+<body>
+<h1></h1>
+<!-- 화면 구현(View) -->
+<div id="tab01" border>
+	<tr><th>물건명</th><td>{{name}}</td></tr>
+	<tr><th>가격</th><td>{{price}}</td></tr>
+	<tr><th>갯수</th><td>{{cnt}}</td></tr>
+</div>
+</body>
+</html>
